@@ -1,13 +1,11 @@
-package ps.room.vacationapp.ui.fragment
+package ps.room.vacationapp.ui.fragment.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
-import ps.room.vacationapp.R
 import ps.room.vacationapp.databinding.FragmentHomeBinding
+import ps.room.vacationapp.ui.fragment.BaseFragment
 
 class HomeFragment : BaseFragment() {
     private  var _binding:FragmentHomeBinding? = null
@@ -27,7 +25,12 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val recyclerView = binding.recyclerView
+        val Homeadapter = HomeFragmentAdapter{
+            // handle item being clicked
+        }
+        binding.recyclerView.adapter = Homeadapter
+
+        Homeadapter.setData(emptyList())
 
     }
 

@@ -54,4 +54,6 @@ dependencies {
     def lifecycle_version = "2.4.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    //picasso image loader
+    implementation 'com.squareup.picasso:picasso:2.8'
 }

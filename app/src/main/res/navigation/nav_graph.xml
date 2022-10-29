@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="ps.room.vacationapp.ui.fragment.HomeFragment"
+        android:name="ps.room.vacationapp.ui.fragment.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"
         >
