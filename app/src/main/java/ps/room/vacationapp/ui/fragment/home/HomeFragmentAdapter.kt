@@ -10,7 +10,7 @@ import ps.room.vacationapp.data.Attraction
 import ps.room.vacationapp.databinding.ViewHolderAttractionBinding
 
 class HomeFragmentAdapter(
-    private val onClickedCallback: ()-> Unit
+    private val onClickedCallback: (String)-> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
 
@@ -19,10 +19,11 @@ class HomeFragmentAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
 
        return AttractionViewHolder(parent)
+
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-
+       // not supportin  different view types so u can cast
         (holder as AttractionViewHolder).onBind(attractions[position], onClickedCallback)
     }
 
@@ -46,7 +47,7 @@ class HomeFragmentAdapter(
 
         private val binding = ViewHolderAttractionBinding.bind(itemView)
 
-        fun onBind(attraction: Attraction, onClicked: () -> Unit){
+        fun onBind(attraction: Attraction, onClicked: (String) -> Unit){
 
             binding.titleTextView.text = attraction.title
             //using picasso to load image
@@ -54,8 +55,8 @@ class HomeFragmentAdapter(
             binding.monthsToVisit.text = attraction.months_to_visit
 
             binding.root.setOnClickListener{
-                onClicked()
-
+                onClicked(attraction.id)
+            //lambda would export an use attraction.id on instantiating the class
             }
 
 

@@ -56,4 +56,5 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
     //picasso image loader
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
 }

@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.RecyclerView
 import ps.room.vacationapp.databinding.FragmentHomeBinding
 import ps.room.vacationapp.ui.fragment.BaseFragment
 
@@ -25,12 +27,16 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val Homeadapter = HomeFragmentAdapter{
-            // handle item being clicked
-        }
-        binding.recyclerView.adapter = Homeadapter
+        val homeadapter = HomeFragmentAdapter{ attractionId->
+            val navDirections = HomeFragmentDirections.actionHomeFragmentToAttractionDetailFragment(attractionId)
+            navController.navigate(navDirections)
 
-        Homeadapter.setData(emptyList())
+        // lambda making use of the exported variable
+        }
+
+        binding.recyclerView.adapter = homeadapter
+        binding.recyclerView.addItemDecoration(DividerItemDecoration(requireActivity(),RecyclerView.VERTICAL))
+        homeadapter.setData(attractions)
 
     }
 

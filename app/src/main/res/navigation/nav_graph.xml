@@ -8,12 +8,13 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="ps.room.vacationapp.ui.fragment.home.HomeFragment"
-        android:label="HomeFragment"
+        android:label="senya Home"
         tools:layout="@layout/fragment_home"
         >
         <action
             android:id="@+id/action_homeFragment_to_attractionDetailFragment"
-            app:destination="@id/attractionDetailFragment" />
+            app:destination="@id/attractionDetailFragment"
+              />
     </fragment>
 
     <fragment
